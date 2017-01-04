@@ -1,0 +1,27 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Items/WareHouse.cs">
+    <Files>
+      <File FileName="Items/Article.cs" Line="15" Column="50" />
+      <File FileName="Items/WareHouse.cs" Line="9" Column="3" />
+      <File FileName="GUI/Program.cs" Line="12" Column="16" />
+      <File FileName="GUI/MainWindow.cs" Line="26" Column="3" />
+      <File FileName="GUI/StockAdmin.cs" Line="18" Column="20" />
+      <File FileName="GUI/gtk-gui/MainWindow.cs" Line="14" Column="33" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="GUI" expanded="True" />
+          <Node name="Items" expanded="True">
+            <Node name="WareHouse.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
