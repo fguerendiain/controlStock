@@ -8,7 +8,7 @@ namespace GUI
 		private global::Gtk.HPaned hpaned2;
 		private global::Gtk.HBox hbox3;
 		private global::Gtk.ScrolledWindow GtkScrolledWindow;
-		private global::Gtk.TextView textview5;
+		private global::Gtk.TextView txtArticleListGuide;
 		private global::Gtk.VBox vbox6;
 		private global::Gtk.Image image1;
 		private global::Gtk.HBox hbox4;
@@ -27,7 +27,7 @@ namespace GUI
 			global::Stetic.Gui.Initialize (this);
 			// Widget GUI.StockAdmin
 			this.Name = "GUI.StockAdmin";
-			this.Title = global::Mono.Unix.Catalog.GetString ("StockAdmin");
+			this.Title = global::Mono.Unix.Catalog.GetString ("Administrador de Stock");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			// Container child GUI.StockAdmin.Gtk.Container+ContainerChild
 			this.frame2 = new global::Gtk.Frame ();
@@ -37,6 +37,7 @@ namespace GUI
 			this.hpaned2 = new global::Gtk.HPaned ();
 			this.hpaned2.CanFocus = true;
 			this.hpaned2.Name = "hpaned2";
+			this.hpaned2.Position = 224;
 			// Container child hpaned2.Gtk.Paned+PanedChild
 			this.hbox3 = new global::Gtk.HBox ();
 			this.hbox3.Name = "hbox3";
@@ -46,10 +47,10 @@ namespace GUI
 			this.GtkScrolledWindow.Name = "GtkScrolledWindow";
 			this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
 			// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-			this.textview5 = new global::Gtk.TextView ();
-			this.textview5.CanFocus = true;
-			this.textview5.Name = "textview5";
-			this.GtkScrolledWindow.Add (this.textview5);
+			this.txtArticleListGuide = new global::Gtk.TextView ();
+			this.txtArticleListGuide.CanFocus = true;
+			this.txtArticleListGuide.Name = "txtArticleListGuide";
+			this.GtkScrolledWindow.Add (this.txtArticleListGuide);
 			this.hbox3.Add (this.GtkScrolledWindow);
 			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.GtkScrolledWindow]));
 			w2.Position = 0;
@@ -166,6 +167,8 @@ namespace GUI
 			this.DefaultHeight = 384;
 			this.Show ();
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+			this.btnBackToWareHouseSelect.Clicked += new global::System.EventHandler (this.OnBtnBackToWareHouseSelectClicked);
+			this.btnAddArticle.Clicked += new global::System.EventHandler (this.OnBtnAddArticleClicked);
 		}
 	}
 }

@@ -1,10 +1,14 @@
 using System;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Items
 {
-	public class WareHouse
+	[Serializable]
+	public class WareHouse : XMLMannager<List<Article>>
 	{
 		#region ---------------ATRIBBUTOS--------------
 		private Sala _place;
@@ -12,9 +16,17 @@ namespace Items
 		#endregion
 
 		#region ---------------PROPIEDADES-------------
+		public List<Article> Stock
+		{
+			get{return _stock;}
+			set{_stock = value;}
+		}
+
 		#endregion
 
 		#region --------------CONSTRUCTORES------------
+		public WareHouse(){}
+
 		public WareHouse (Sala sala)
 		{
 			this._place = sala;
@@ -120,6 +132,8 @@ namespace Items
 			return null;
 		}
 
+
+
 		//----------------------------VALIDACIONES------------------------------
 
 		/// <summary>
@@ -142,6 +156,21 @@ namespace Items
 		#endregion
 
 		#region ----------SOBRECARGA DE METODOS--------
+		public override string ToString ()
+		{
+			StringBuilder cadena = new StringBuilder ();
+
+			cadena.AppendLine ("DEPOSITO: " + this._place.ToString ());
+			cadena.AppendLine ("");
+			foreach (Article t in this._stock)
+			{
+				cadena.Append (t.ToString ());
+
+			}
+
+			return cadena.ToString();
+		}
+
 		#endregion
 
 		#region ---------SOBRECARGA DE OPERADORES------

@@ -68,6 +68,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StockAdmin.cs" />
     <Compile Include="gtk-gui\GUI.StockAdmin.cs" />
+    <Compile Include="AddItem.cs" />
+    <Compile Include="gtk-gui\GUI.AddItem.cs" />
+    <Compile Include="RemoveItem.cs" />
+    <Compile Include="gtk-gui\GUI.RemoveItem.cs" />
+    <Compile Include="EntryArticle.cs" />
+    <Compile Include="gtk-gui\GUI.EntryArticle.cs" />
+    <Compile Include="DischargeArticle.cs" />
+    <Compile Include="gtk-gui\GUI.DischargeArticle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

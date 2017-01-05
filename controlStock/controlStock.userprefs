@@ -1,21 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Items/WareHouse.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GUI/StockAdmin.cs">
     <Files>
-      <File FileName="Items/Article.cs" Line="15" Column="50" />
-      <File FileName="Items/WareHouse.cs" Line="9" Column="3" />
-      <File FileName="GUI/Program.cs" Line="12" Column="16" />
-      <File FileName="GUI/MainWindow.cs" Line="26" Column="3" />
-      <File FileName="GUI/StockAdmin.cs" Line="18" Column="20" />
-      <File FileName="GUI/gtk-gui/MainWindow.cs" Line="14" Column="33" />
+      <File FileName="Items/Article.cs" Line="136" Column="4" />
+      <File FileName="Items/WareHouse.cs" Line="170" Column="1" />
+      <File FileName="GUI/MainWindow.cs" Line="23" Column="23" />
+      <File FileName="GUI/StockAdmin.cs" Line="92" Column="4" />
+      <File FileName="GUI/AddItem.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="GUI" expanded="True" />
-          <Node name="Items" expanded="True">
-            <Node name="WareHouse.cs" selected="True" />
+          <Node name="GUI" expanded="True">
+            <Node name="StockAdmin.cs" selected="True" />
           </Node>
+          <Node name="Items" expanded="True" />
         </State>
       </Pad>
     </Pads>

@@ -9,8 +9,6 @@ public partial class MainWindow
 	private global::Gtk.Button btnMWKandiko;
 	private global::Gtk.Button btnMWRebisco;
 
-	bool AllowGrow;
-
 	protected virtual void Build ()
 	{
 		global::Stetic.Gui.Initialize (this);
@@ -21,7 +19,7 @@ public partial class MainWindow
 		this.Title = global::Mono.Unix.Catalog.GetString ("Stock AGG Sistemas");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 		this.Resizable = false;
-		this.AllowGrow = false;
+	//	this.AllowGrow = false;
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox5 = new global::Gtk.VBox ();
 		this.vbox5.Name = "vbox5";

@@ -1,7 +1,12 @@
 using System;
+using System.Text;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Items
 {
+	[Serializable]
 	public class Article
 	{
 		#region ---------------ATRIBBUTOS--------------
@@ -70,6 +75,8 @@ namespace Items
 		#endregion
 
 		#region --------------CONSTRUCTORES------------
+		public Article(){}
+
 		public Article (int id, string description)
 		{
 			this.Id = id;
@@ -118,9 +125,18 @@ namespace Items
 		{
 			return descriptionAttempt;
 		}
+		#endregion
 
+		#region ----------SOBRECARGA DE METODOS--------
+		public override string ToString ()
+		{
+			StringBuilder cadena = new StringBuilder ();
+			cadena.AppendLine ("ID: " + this.Id.ToString().PadLeft(4,'0') + " - " + this.Description + "\t | S: " + this.Stock);
+			return cadena.ToString();
+		}
 
 		#endregion
+
 	}
 }
 
