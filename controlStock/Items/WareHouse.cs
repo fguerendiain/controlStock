@@ -11,7 +11,7 @@ namespace Items
 	public class WareHouse : XMLMannager<List<Article>>
 	{
 		#region ---------------ATRIBBUTOS--------------
-		private Sala _place;
+		private Empresa _place;
 		private List<Article> _stock;
 		#endregion
 
@@ -22,12 +22,17 @@ namespace Items
 			set{_stock = value;}
 		}
 
+		public string Sala
+		{
+			get{return this._place.ToString ();}
+		}
+
 		#endregion
 
 		#region --------------CONSTRUCTORES------------
 		public WareHouse(){}
 
-		public WareHouse (Sala sala)
+		public WareHouse (Empresa sala)
 		{
 			this._place = sala;
 			this._stock = new List<Article> ();
@@ -51,10 +56,6 @@ namespace Items
 				this._stock.Add (articulo);
 				return true;
 			}
-			else
-			{
-				(this.SearchArticleBy (articulo)).ModifyStock (articulo.MaxStock,true);
-			}
 			return false;
 		}
 
@@ -70,9 +71,30 @@ namespace Items
 				this._stock.Remove(articulo);
 				return true;
 			}
-			else
+			return false;
+		}
+
+		/// <summary>
+		/// Modify the stock based on the recived amount
+		/// </summary>
+		/// <param name="amount">Amount of items</param>
+		/// <param name="operation">If true add the amount, if false remove</param>
+		public bool ModifyStock(Article serchArticle, int amount, bool operation)
+		{
+			if (operation == true)
 			{
-				(this.SearchArticleBy (articulo)).ModifyStock (articulo.MaxStock,false);
+				(this.SearchArticleBy(serchArticle)).Stock += amount;
+				return true;
+			}
+			if (operation == false)
+			{
+				(this.SearchArticleBy(serchArticle)).Stock -= amount;
+				if ((this.SearchArticleBy (serchArticle)).Stock < 0)
+				{
+					(this.SearchArticleBy(serchArticle)).Stock = 0;
+					
+				}
+				return true;
 			}
 			return false;
 		}
@@ -112,7 +134,7 @@ namespace Items
 					return t;
 				}
 			}
-			return null;
+			return new Article (0, "null");
 		}
 
 		/// <summary>
@@ -129,7 +151,7 @@ namespace Items
 					return t;
 				}
 			}
-			return null;
+			return new Article(0,"null");
 		}
 
 
@@ -160,24 +182,24 @@ namespace Items
 		{
 			StringBuilder cadena = new StringBuilder ();
 
-			cadena.AppendLine ("DEPOSITO: " + this._place.ToString ());
+			cadena.AppendLine ("Deposito:\t--" + this._place.ToString().ToUpper() + "--");
 			cadena.AppendLine ("");
+	
+//			this._stock.Sort ();   averiguar como hacer el metodo para ordenar por id
+
 			foreach (Article t in this._stock)
 			{
 				cadena.Append (t.ToString ());
-
 			}
-
 			return cadena.ToString();
 		}
-
 		#endregion
 
 		#region ---------SOBRECARGA DE OPERADORES------
 		#endregion
 
 		#region ----------------ENUMERADOS-------------
-		public enum Sala
+		public enum Empresa
 		{
 			Biyemas,
 			Kandiko,

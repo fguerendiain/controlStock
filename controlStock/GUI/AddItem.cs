@@ -1,23 +1,22 @@
 using System;
 using Items;
+using Gtk;
 
 namespace GUI
 {
 	public partial class AddItem : Gtk.Window
 	{
-		WareHouse auxDeposito;
-		string selectedWareHouse;
-		string archivoXMLBiyemas = "../../../BBiyemas.xml";
-		string archivoXMLKandiko = "../../../BKandiko.xml";
-		string archivoXMLRebisco = "../../../BRebisco.xml";
+		WareHouse activeWareHouse;
+		WareHouse auxiliarUnmodifyWareHouse;
+		string archivoXML;
 
 
-		public AddItem (WareHouse activeWareHouse, string selectedWareHouseParameter) :base(Gtk.WindowType.Toplevel)
+		public AddItem (WareHouse activeWareHouseParameter, string archivoXMLParameter) :base(Gtk.WindowType.Toplevel)
 		{
 			this.Build ();
-			auxDeposito = activeWareHouse;
-			selectedWareHouse = selectedWareHouseParameter;
-
+			this.archivoXML = archivoXMLParameter;
+			this.auxiliarUnmodifyWareHouse = activeWareHouseParameter;
+			this.activeWareHouse = activeWareHouseParameter;
 		}
 
 		protected void OnBtnAddItemOkClicked (object sender, EventArgs e)
@@ -35,35 +34,38 @@ namespace GUI
 			int.TryParse(this.entAddItemMaxStock.Text.ToString(),out auxNewMaxStock);
 
 			Article auxNewArticle = new Article (auxNewId,auxNewDescription,auxNewStock,auxNewMinStock,auxNewMaxStock);
-			auxDeposito.AddArticle (auxNewArticle);
 
-
-			switch (selectedWareHouse)
+			//valida si pudo o no cargar el nuevo articulo
+			if (!activeWareHouse.AddArticle (auxNewArticle))
 			{
-				case "Biyemas":
-			{
-				auxDeposito.Guardar (archivoXMLBiyemas, auxDeposito.Stock);
+				this.Hide();
+				MessageDialog errorMessage = new MessageDialog (this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, "No se puede agregar el articulo");
+				errorMessage.Run ();
+				errorMessage.Destroy ();
+				this.backToStockAdmin (auxiliarUnmodifyWareHouse);
 			}
-				break;				
-
-				case "Kandiko":
-			{
-				auxDeposito.Guardar (archivoXMLKandiko, auxDeposito.Stock);
-			}
-				break;				
-
-				case "Rebisco":
-			{
-				auxDeposito.Guardar (archivoXMLRebisco, auxDeposito.Stock);
-			}
-				break;		
-			}
-
-			StockAdmin backStockAdmin = new StockAdmin (auxDeposito, selectedWareHouse);
-			backStockAdmin.Show ();
-			this.Destroy();
+			activeWareHouse.Guardar (archivoXML, activeWareHouse.Stock);
+			this.backToStockAdmin (activeWareHouse);
 
 		}
+
+		protected void OnDeleteEvent (object sender, DeleteEventArgs a)
+		{
+			this.backToStockAdmin (auxiliarUnmodifyWareHouse);
+		}
+
+		/// <summary>
+		/// Backs to stock admin.
+		/// </summary>
+		/// <param name="workedWareHouse">Worked ware house.</param>
+		private void backToStockAdmin(WareHouse workedWareHouse)
+		{
+			StockAdmin backStockAdmin = new StockAdmin (workedWareHouse, archivoXML);
+			backStockAdmin.Show ();
+			this.Destroy();
+		}
+
+
 	}
 }
 

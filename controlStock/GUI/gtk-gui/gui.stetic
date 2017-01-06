@@ -8,19 +8,28 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/GUI.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="243 109">
+  <widget class="Gtk.Window" id="MainWindow" design-size="243 163">
     <property name="MemberName" />
     <property name="CanDefault">True</property>
     <property name="CanFocus">True</property>
     <property name="Title" translatable="yes">Stock AGG Sistemas</property>
     <property name="WindowPosition">Center</property>
     <property name="Resizable">False</property>
-    <property name="AllowGrow">False</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
       <widget class="Gtk.VBox" id="vbox5">
         <property name="MemberName" />
         <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.Image" id="image5">
+            <property name="MemberName" />
+            <property name="Pixbuf">file:./logo.jpg</property>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">False</property>
+          </packing>
+        </child>
         <child>
           <widget class="Gtk.Label" id="lblMWDeposito">
             <property name="MemberName" />
@@ -28,7 +37,7 @@
             <property name="Justify">Center</property>
           </widget>
           <packing>
-            <property name="Position">0</property>
+            <property name="Position">1</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -87,7 +96,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">1</property>
+            <property name="Position">2</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -109,7 +118,7 @@
           <widget class="Gtk.HPaned" id="hpaned2">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Position">224</property>
+            <property name="Position">272</property>
             <child>
               <widget class="Gtk.HBox" id="hbox3">
                 <property name="MemberName" />
@@ -123,6 +132,7 @@
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
                         <property name="ShowScrollbars">True</property>
+                        <property name="Editable">False</property>
                         <property name="Text" translatable="yes" />
                       </widget>
                     </child>
@@ -142,12 +152,13 @@
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
-                  <widget class="Gtk.Image" id="image1">
+                  <widget class="Gtk.Image" id="image6">
                     <property name="MemberName" />
+                    <property name="Pixbuf">file:./logo.jpg</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
-                    <property name="AutoSize">True</property>
+                    <property name="AutoSize">False</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
                   </packing>
@@ -235,6 +246,7 @@
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">BORRAR ARTICULO</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnBtnDeleteArticleClicked" />
                       </widget>
                       <packing>
                         <property name="LeftAttach">1</property>
@@ -255,6 +267,7 @@
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">EGRESO</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnBtnDischargeArticleClicked" />
                       </widget>
                       <packing>
                         <property name="TopAttach">1</property>
@@ -277,6 +290,7 @@
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">INGRESO</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnBtnEntryArticleClicked" />
                       </widget>
                       <packing>
                         <property name="TopAttach">1</property>
@@ -301,7 +315,7 @@
           </widget>
         </child>
         <child>
-          <widget class="Gtk.Label" id="GtkLabel1">
+          <widget class="Gtk.Label" id="GtkLabel5">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">&lt;b&gt;GtkFrame&lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
@@ -313,22 +327,23 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="GUI.AddItem" design-size="348 301">
+  <widget class="Gtk.Window" id="GUI.AddItem" design-size="404 301">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Agregar nuevo articulo</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
       <widget class="Gtk.VBox" id="vbox2">
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.Image" id="image1">
+          <widget class="Gtk.Image" id="image7">
             <property name="MemberName" />
+            <property name="Pixbuf">file:./logo.jpg</property>
           </widget>
           <packing>
             <property name="Position">0</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
+            <property name="AutoSize">False</property>
             <property name="Fill">False</property>
           </packing>
         </child>
@@ -566,20 +581,6 @@
                 <property name="AutoSize">False</property>
               </packing>
             </child>
-            <child>
-              <widget class="Gtk.Button" id="btnAddItemCancel">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">Cancelar</property>
-                <property name="UseUnderline">True</property>
-                <property name="BorderWidth">3</property>
-              </widget>
-              <packing>
-                <property name="Position">1</property>
-                <property name="AutoSize">False</property>
-              </packing>
-            </child>
           </widget>
           <packing>
             <property name="Position">2</property>
@@ -592,28 +593,319 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="GUI.RemoveItem" design-size="400 300">
+  <widget class="Gtk.Window" id="GUI.RemoveItem" design-size="332 332">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">RemoveItem</property>
+    <property name="Title" translatable="yes">Eliminar Articulo</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
-      <placeholder />
+      <widget class="Gtk.VBox" id="vbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.Image" id="image8">
+            <property name="MemberName" />
+            <property name="Pixbuf">file:./logo.jpg</property>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HBox" id="hbox1">
+            <property name="MemberName" />
+            <child>
+              <widget class="Gtk.Label" id="lblRemoveItemId">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">ID</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+                <property name="Padding">20</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Entry" id="entRemoveItemGetId">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">False</property>
+                <property name="Expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Alignment" id="alignment1">
+                <property name="MemberName" />
+                <property name="LeftPadding">10</property>
+                <child>
+                  <widget class="Gtk.Button" id="btnRemoveItemGetArticle">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextOnly</property>
+                    <property name="Label" translatable="yes">...</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnBtnRemoveItemGetArticleClicked" />
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">False</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+            <property name="Padding">20</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Alignment" id="alignment2">
+            <property name="MemberName" />
+            <property name="LeftPadding">10</property>
+            <property name="RightPadding">10</property>
+            <child>
+              <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+                <property name="MemberName" />
+                <property name="ShadowType">In</property>
+                <child>
+                  <widget class="Gtk.TextView" id="txtRemoveItemInfo">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="ShowScrollbars">True</property>
+                    <property name="Text" translatable="yes" />
+                  </widget>
+                </child>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="btnRemoveItemOk">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Borrar Articulo</property>
+            <property name="UseUnderline">True</property>
+            <property name="BorderWidth">10</property>
+            <signal name="Clicked" handler="OnBtnRemoveItemOkClicked" />
+          </widget>
+          <packing>
+            <property name="Position">3</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="GUI.EntryArticle" design-size="400 300">
+  <widget class="Gtk.Window" id="GUI.EntryArticle" design-size="341 320">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">EntryArticle</property>
+    <property name="Title" translatable="yes">Ingreso de Mercaderia</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
-      <placeholder />
-    </child>
-  </widget>
-  <widget class="Gtk.Window" id="GUI.DischargeArticle" design-size="400 300">
-    <property name="MemberName" />
-    <property name="Title" translatable="yes">DischargeArticle</property>
-    <property name="WindowPosition">CenterOnParent</property>
-    <child>
-      <placeholder />
+      <widget class="Gtk.VBox" id="vbox2">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.Image" id="image9">
+            <property name="MemberName" />
+            <property name="Pixbuf">file:./logo.jpg</property>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HBox" id="hbox2">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.Alignment" id="alignment3">
+                <property name="MemberName" />
+                <property name="LeftPadding">10</property>
+                <child>
+                  <widget class="Gtk.Label" id="lblEntryArticleGetId">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">ID</property>
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Alignment" id="alignment5">
+                <property name="MemberName" />
+                <property name="RightPadding">10</property>
+                <child>
+                  <widget class="Gtk.Entry" id="entEntryArticleGetId">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="IsEditable">True</property>
+                    <property name="InvisibleChar">●</property>
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Alignment" id="alignment4">
+                <property name="MemberName" />
+                <property name="RightPadding">10</property>
+                <child>
+                  <widget class="Gtk.Button" id="btnEntryArticleGetId">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextOnly</property>
+                    <property name="Label" translatable="yes">...</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnBtnEntryArticleGetIdClicked" />
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Alignment" id="alignment6">
+            <property name="MemberName" />
+            <property name="LeftPadding">10</property>
+            <property name="RightPadding">10</property>
+            <child>
+              <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+                <property name="MemberName" />
+                <property name="ShadowType">In</property>
+                <child>
+                  <widget class="Gtk.TextView" id="txtEntryArticleInfo">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="ShowScrollbars">True</property>
+                    <property name="Editable">False</property>
+                    <property name="Text" translatable="yes" />
+                  </widget>
+                </child>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HBox" id="hbox3">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.Alignment" id="alignment7">
+                <property name="MemberName" />
+                <property name="LeftPadding">10</property>
+                <child>
+                  <widget class="Gtk.Label" id="lblEntryArticleQuantity">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Cantidad</property>
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Alignment" id="alignment8">
+                <property name="MemberName" />
+                <property name="RightPadding">10</property>
+                <child>
+                  <widget class="Gtk.Entry" id="entEntryArticleQuantity">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="IsEditable">True</property>
+                    <property name="InvisibleChar">●</property>
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">3</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Alignment" id="alignment9">
+            <property name="MemberName" />
+            <property name="LeftPadding">10</property>
+            <property name="RightPadding">10</property>
+            <property name="BottomPadding">5</property>
+            <child>
+              <widget class="Gtk.Button" id="btnEntryArticleOk">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Aceptar</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnBtnEntryArticleOkClicked" />
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">4</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
     </child>
   </widget>
 </stetic-interface>

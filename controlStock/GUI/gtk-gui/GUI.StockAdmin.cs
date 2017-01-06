@@ -10,7 +10,7 @@ namespace GUI
 		private global::Gtk.ScrolledWindow GtkScrolledWindow;
 		private global::Gtk.TextView txtArticleListGuide;
 		private global::Gtk.VBox vbox6;
-		private global::Gtk.Image image1;
+		private global::Gtk.Image image6;
 		private global::Gtk.HBox hbox4;
 		private global::Gtk.Label lblDepositoSeleccionadoMensaje;
 		private global::Gtk.Label lblDepositoSeleccionado;
@@ -20,7 +20,7 @@ namespace GUI
 		private global::Gtk.Button btnDeleteArticle;
 		private global::Gtk.Button btnDischargeArticle;
 		private global::Gtk.Button btnEntryArticle;
-		private global::Gtk.Label GtkLabel1;
+		private global::Gtk.Label GtkLabel5;
 
 		protected virtual void Build ()
 		{
@@ -37,7 +37,7 @@ namespace GUI
 			this.hpaned2 = new global::Gtk.HPaned ();
 			this.hpaned2.CanFocus = true;
 			this.hpaned2.Name = "hpaned2";
-			this.hpaned2.Position = 224;
+			this.hpaned2.Position = 272;
 			// Container child hpaned2.Gtk.Paned+PanedChild
 			this.hbox3 = new global::Gtk.HBox ();
 			this.hbox3.Name = "hbox3";
@@ -50,6 +50,7 @@ namespace GUI
 			this.txtArticleListGuide = new global::Gtk.TextView ();
 			this.txtArticleListGuide.CanFocus = true;
 			this.txtArticleListGuide.Name = "txtArticleListGuide";
+			this.txtArticleListGuide.Editable = false;
 			this.GtkScrolledWindow.Add (this.txtArticleListGuide);
 			this.hbox3.Add (this.GtkScrolledWindow);
 			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.GtkScrolledWindow]));
@@ -62,10 +63,11 @@ namespace GUI
 			this.vbox6.Name = "vbox6";
 			this.vbox6.Spacing = 6;
 			// Container child vbox6.Gtk.Box+BoxChild
-			this.image1 = new global::Gtk.Image ();
-			this.image1.Name = "image1";
-			this.vbox6.Add (this.image1);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox6 [this.image1]));
+			this.image6 = new global::Gtk.Image ();
+			this.image6.Name = "image6";
+			this.image6.Pixbuf = new global::Gdk.Pixbuf (global::System.IO.Path.Combine (global::System.AppDomain.CurrentDomain.BaseDirectory, "./logo.jpg"));
+			this.vbox6.Add (this.image6);
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox6 [this.image6]));
 			w4.Position = 0;
 			w4.Expand = false;
 			w4.Fill = false;
@@ -154,11 +156,11 @@ namespace GUI
 			w13.Position = 2;
 			this.hpaned2.Add (this.vbox6);
 			this.frame2.Add (this.hpaned2);
-			this.GtkLabel1 = new global::Gtk.Label ();
-			this.GtkLabel1.Name = "GtkLabel1";
-			this.GtkLabel1.LabelProp = global::Mono.Unix.Catalog.GetString ("<b>GtkFrame</b>");
-			this.GtkLabel1.UseMarkup = true;
-			this.frame2.LabelWidget = this.GtkLabel1;
+			this.GtkLabel5 = new global::Gtk.Label ();
+			this.GtkLabel5.Name = "GtkLabel5";
+			this.GtkLabel5.LabelProp = global::Mono.Unix.Catalog.GetString ("<b>GtkFrame</b>");
+			this.GtkLabel5.UseMarkup = true;
+			this.frame2.LabelWidget = this.GtkLabel5;
 			this.Add (this.frame2);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
@@ -168,6 +170,9 @@ namespace GUI
 			this.Show ();
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 			this.btnBackToWareHouseSelect.Clicked += new global::System.EventHandler (this.OnBtnBackToWareHouseSelectClicked);
+			this.btnEntryArticle.Clicked += new global::System.EventHandler (this.OnBtnEntryArticleClicked);
+			this.btnDischargeArticle.Clicked += new global::System.EventHandler (this.OnBtnDischargeArticleClicked);
+			this.btnDeleteArticle.Clicked += new global::System.EventHandler (this.OnBtnDeleteArticleClicked);
 			this.btnAddArticle.Clicked += new global::System.EventHandler (this.OnBtnAddArticleClicked);
 		}
 	}

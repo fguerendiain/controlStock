@@ -5,7 +5,7 @@ namespace GUI
 	public partial class AddItem
 	{
 		private global::Gtk.VBox vbox2;
-		private global::Gtk.Image image1;
+		private global::Gtk.Image image7;
 		private global::Gtk.Table table2;
 		private global::Gtk.Entry entAddItemDescription;
 		private global::Gtk.Entry entAddItemId;
@@ -19,7 +19,6 @@ namespace GUI
 		private global::Gtk.Label lblAddItemStockInicial;
 		private global::Gtk.HBox hbox1;
 		private global::Gtk.Button btnAddItemOk;
-		private global::Gtk.Button btnAddItemCancel;
 
 		protected virtual void Build ()
 		{
@@ -33,12 +32,12 @@ namespace GUI
 			this.vbox2.Name = "vbox2";
 			this.vbox2.Spacing = 6;
 			// Container child vbox2.Gtk.Box+BoxChild
-			this.image1 = new global::Gtk.Image ();
-			this.image1.Name = "image1";
-			this.vbox2.Add (this.image1);
-			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.image1]));
+			this.image7 = new global::Gtk.Image ();
+			this.image7.Name = "image7";
+			this.image7.Pixbuf = new global::Gdk.Pixbuf (global::System.IO.Path.Combine (global::System.AppDomain.CurrentDomain.BaseDirectory, "./logo.jpg"));
+			this.vbox2.Add (this.image7);
+			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.image7]));
 			w1.Position = 0;
-			w1.Expand = false;
 			w1.Fill = false;
 			// Container child vbox2.Gtk.Box+BoxChild
 			this.table2 = new global::Gtk.Table (((uint)(5)), ((uint)(2)), false);
@@ -174,29 +173,20 @@ namespace GUI
 			this.hbox1.Add (this.btnAddItemOk);
 			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.btnAddItemOk]));
 			w13.Position = 0;
-			// Container child hbox1.Gtk.Box+BoxChild
-			this.btnAddItemCancel = new global::Gtk.Button ();
-			this.btnAddItemCancel.CanFocus = true;
-			this.btnAddItemCancel.Name = "btnAddItemCancel";
-			this.btnAddItemCancel.UseUnderline = true;
-			this.btnAddItemCancel.BorderWidth = ((uint)(3));
-			this.btnAddItemCancel.Label = global::Mono.Unix.Catalog.GetString ("Cancelar");
-			this.hbox1.Add (this.btnAddItemCancel);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.btnAddItemCancel]));
-			w14.Position = 1;
 			this.vbox2.Add (this.hbox1);
-			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.hbox1]));
-			w15.Position = 2;
-			w15.Expand = false;
-			w15.Fill = false;
-			w15.Padding = ((uint)(10));
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.hbox1]));
+			w14.Position = 2;
+			w14.Expand = false;
+			w14.Fill = false;
+			w14.Padding = ((uint)(10));
 			this.Add (this.vbox2);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 348;
+			this.DefaultWidth = 404;
 			this.DefaultHeight = 301;
 			this.Show ();
+			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 			this.btnAddItemOk.Clicked += new global::System.EventHandler (this.OnBtnAddItemOkClicked);
 		}
 	}

@@ -100,23 +100,6 @@ namespace Items
 
 		#region -----------------METODOS---------------
 		/// <summary>
-		/// Modify the stock based on the recived amount
-		/// </summary>
-		/// <param name="amount">Amount of items</param>
-		/// <param name="operation">If true add the amount, if false remove</param>
-		public void ModifyStock(int amount, bool operation)
-		{
-			if (operation == true)
-			{
-				this._stock = this._stock + amount;
-			}
-			if (operation == false)
-			{
-				this._stock = this._stock - amount;
-			}
-		}
-
-		/// <summary>
 		/// Validates the description.
 		/// </summary>
 		/// <returns>The description.</returns>
@@ -125,13 +108,34 @@ namespace Items
 		{
 			return descriptionAttempt;
 		}
+
+		/// <summary>
+		/// Prints the complete info article.
+		/// </summary>
+		/// <returns>The article.</returns>
+		public string PrintArticle ()
+		{
+			StringBuilder cadena = new StringBuilder ();
+			cadena.AppendLine ("ID:\t\t\t\t\t" + this.Id.ToString().PadLeft(4,'0'));
+			cadena.AppendLine ("DESCRIPCION:\t\t" + this.Description);
+			cadena.AppendLine ("STOCK:\t\t\t\t" + this.Stock);
+			cadena.AppendLine ("-----------------------------");
+			cadena.AppendLine ("STOCK MINIMO:\t\t" + this.MinStock);
+			cadena.AppendLine ("STOCK MAXIMO:\t" + this.MaxStock);
+			return cadena.ToString();
+		}
+
 		#endregion
 
 		#region ----------SOBRECARGA DE METODOS--------
+		/// <summary>
+		/// Prints only basic info article
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="Items.Article"/>.</returns>
 		public override string ToString ()
 		{
 			StringBuilder cadena = new StringBuilder ();
-			cadena.AppendLine ("ID: " + this.Id.ToString().PadLeft(4,'0') + " - " + this.Description + "\t | S: " + this.Stock);
+			cadena.AppendLine ("ID: " + this.Id.ToString().PadLeft(4,'0') + " | S: " + this.Stock.ToString().PadLeft(2,'0') + " | " + this.Description);
 			return cadena.ToString();
 		}
 

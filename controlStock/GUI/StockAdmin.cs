@@ -10,101 +10,66 @@ namespace GUI
 	{
 
 		WareHouse activeWareHouse;
-		string archivoXMLBiyemas = "../../../BBiyemas.xml";
-		string archivoXMLKandiko = "../../../BKandiko.xml";
-		string archivoXMLRebisco = "../../../BRebisco.xml";
+		string archivoXML;
 
 
-		public StockAdmin (WareHouse activeWareHouseParameter, string selectedWareHouse):base(Gtk.WindowType.Toplevel)
+		public StockAdmin (WareHouse activeWareHouseParameter, string archivoXMLPArameter):base(Gtk.WindowType.Toplevel)
 		{
 			this.Build ();
-			this.lblDepositoSeleccionado.Text = selectedWareHouse;
+			this.archivoXML = archivoXMLPArameter;
 			this.activeWareHouse = activeWareHouseParameter;
-
-			switch (selectedWareHouse) {
-			
-				case "Biyemas":
-				{
-				this.txtArticleListGuide.Buffer.Text = activeWareHouse.ToString ();
-				}
-				break;
-			
-				case "Kandiko":
-				{
-				this.txtArticleListGuide.Buffer.Text = activeWareHouse.ToString ();
-				}
-				break;
-	
-				case "Rebisco":
-				{
-				this.txtArticleListGuide.Buffer.Text = activeWareHouse.ToString ();
-				}
-				break;
-			}
+			this.lblDepositoSeleccionado.Text = activeWareHouse.Sala.ToString();
+			this.txtArticleListGuide.Buffer.Text = activeWareHouse.ToString ();
 		}
 
-		protected void OnDeleteEvent (object sender, DeleteEventArgs a)
-		{
-			switch (this.lblDepositoSeleccionado.Text)
-			{
-				case "Biyemas":
-				{
-					activeWareHouse.Guardar (archivoXMLBiyemas, activeWareHouse.Stock);
-				}
-				break;				
-	
-				case "Kandiko":
-				{
-					activeWareHouse.Guardar (archivoXMLKandiko, activeWareHouse.Stock);
-				}
-				break;				
-
-				case "Rebisco":
-				{
-					activeWareHouse.Guardar (archivoXMLRebisco, activeWareHouse.Stock);
-				}
-				break;		
-			}
-			Application.Quit ();
-			a.RetVal = true;
-		}
 
 		protected void OnBtnAddArticleClicked (object sender, EventArgs e)
 		{
-			AddItem addItem = new AddItem(activeWareHouse,this.lblDepositoSeleccionado.Text.ToString());
+			AddItem addItem = new AddItem(activeWareHouse,archivoXML);
 			addItem.Show();
 			this.Destroy ();
 		}
 
-
-
 		protected void OnBtnBackToWareHouseSelectClicked (object sender, EventArgs e)
 		{
+			activeWareHouse.Guardar (archivoXML, activeWareHouse.Stock);
+//			this.Hide ();
 			MainWindow backMainWindow = new MainWindow ();
 			backMainWindow.Show ();
-
-			switch (this.lblDepositoSeleccionado.Text)
-			{
-				case "Biyemas":
-			{
-				activeWareHouse.Guardar (archivoXMLBiyemas, activeWareHouse.Stock);
-			}
-				break;				
-
-				case "Kandiko":
-			{
-				activeWareHouse.Guardar (archivoXMLKandiko, activeWareHouse.Stock);
-			}
-				break;				
-
-				case "Rebisco":
-			{
-				activeWareHouse.Guardar (archivoXMLRebisco, activeWareHouse.Stock);
-			}
-				break;		
-			}
 			this.Destroy();
 		}
+
+		protected void OnBtnDeleteArticleClicked (object sender, EventArgs e)
+		{
+			RemoveItem removeItem = new RemoveItem(activeWareHouse,archivoXML);
+			removeItem.Show();
+			this.Destroy ();
+		}
+
+		protected void OnDeleteEvent (object sender, DeleteEventArgs a)
+		{
+			activeWareHouse.Guardar (archivoXML, activeWareHouse.Stock);
+			Application.Quit ();
+			a.RetVal = true;
+		}
+
+
+
+		protected void OnBtnEntryArticleClicked (object sender, EventArgs e)
+		{
+			EntryArticle entryArticle = new EntryArticle(activeWareHouse,archivoXML,true);
+			entryArticle.Show();
+			this.Destroy ();
+		}
+
+		protected void OnBtnDischargeArticleClicked (object sender, EventArgs e)
+		{
+			EntryArticle entryArticle = new EntryArticle(activeWareHouse,archivoXML,false);
+			entryArticle.Title = "Egreso de Mercaderia";
+			entryArticle.Show();
+			this.Destroy ();
+		}
+
 	}
 }
 

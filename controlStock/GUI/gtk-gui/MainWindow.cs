@@ -3,6 +3,7 @@
 public partial class MainWindow
 {
 	private global::Gtk.VBox vbox5;
+	private global::Gtk.Image image5;
 	private global::Gtk.Label lblMWDeposito;
 	private global::Gtk.HBox hbox2;
 	private global::Gtk.Button btnMWBiyemas;
@@ -19,22 +20,29 @@ public partial class MainWindow
 		this.Title = global::Mono.Unix.Catalog.GetString ("Stock AGG Sistemas");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 		this.Resizable = false;
-	//	this.AllowGrow = false;
+//		this.AllowGrow = false;
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox5 = new global::Gtk.VBox ();
 		this.vbox5.Name = "vbox5";
 		this.vbox5.Spacing = 6;
+		// Container child vbox5.Gtk.Box+BoxChild
+		this.image5 = new global::Gtk.Image ();
+		this.image5.Name = "image5";
+		this.image5.Pixbuf = new global::Gdk.Pixbuf (global::System.IO.Path.Combine (global::System.AppDomain.CurrentDomain.BaseDirectory, "./logo.jpg"));
+		this.vbox5.Add (this.image5);
+		global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.image5]));
+		w1.Position = 0;
 		// Container child vbox5.Gtk.Box+BoxChild
 		this.lblMWDeposito = new global::Gtk.Label ();
 		this.lblMWDeposito.Name = "lblMWDeposito";
 		this.lblMWDeposito.LabelProp = global::Mono.Unix.Catalog.GetString ("SELECCIONE DEPOSITO");
 		this.lblMWDeposito.Justify = ((global::Gtk.Justification)(2));
 		this.vbox5.Add (this.lblMWDeposito);
-		global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.lblMWDeposito]));
-		w1.Position = 0;
-		w1.Expand = false;
-		w1.Fill = false;
-		w1.Padding = ((uint)(3));
+		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.lblMWDeposito]));
+		w2.Position = 1;
+		w2.Expand = false;
+		w2.Fill = false;
+		w2.Padding = ((uint)(3));
 		// Container child vbox5.Gtk.Box+BoxChild
 		this.hbox2 = new global::Gtk.HBox ();
 		this.hbox2.Name = "hbox2";
@@ -48,8 +56,8 @@ public partial class MainWindow
 		this.btnMWBiyemas.BorderWidth = ((uint)(2));
 		this.btnMWBiyemas.Label = global::Mono.Unix.Catalog.GetString ("Biyemas");
 		this.hbox2.Add (this.btnMWBiyemas);
-		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.btnMWBiyemas]));
-		w2.Position = 0;
+		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.btnMWBiyemas]));
+		w3.Position = 0;
 		// Container child hbox2.Gtk.Box+BoxChild
 		this.btnMWKandiko = new global::Gtk.Button ();
 		this.btnMWKandiko.CanFocus = true;
@@ -58,8 +66,8 @@ public partial class MainWindow
 		this.btnMWKandiko.BorderWidth = ((uint)(2));
 		this.btnMWKandiko.Label = global::Mono.Unix.Catalog.GetString ("Kandiko");
 		this.hbox2.Add (this.btnMWKandiko);
-		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.btnMWKandiko]));
-		w3.Position = 1;
+		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.btnMWKandiko]));
+		w4.Position = 1;
 		// Container child hbox2.Gtk.Box+BoxChild
 		this.btnMWRebisco = new global::Gtk.Button ();
 		this.btnMWRebisco.CanFocus = true;
@@ -68,19 +76,19 @@ public partial class MainWindow
 		this.btnMWRebisco.BorderWidth = ((uint)(2));
 		this.btnMWRebisco.Label = global::Mono.Unix.Catalog.GetString ("Rebisco");
 		this.hbox2.Add (this.btnMWRebisco);
-		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.btnMWRebisco]));
-		w4.Position = 2;
+		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.btnMWRebisco]));
+		w5.Position = 2;
 		this.vbox5.Add (this.hbox2);
-		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.hbox2]));
-		w5.Position = 1;
-		w5.Expand = false;
-		w5.Fill = false;
+		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.hbox2]));
+		w6.Position = 2;
+		w6.Expand = false;
+		w6.Fill = false;
 		this.Add (this.vbox5);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
 		this.DefaultWidth = 243;
-		this.DefaultHeight = 109;
+		this.DefaultHeight = 163;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.btnMWBiyemas.Clicked += new global::System.EventHandler (this.OnBtnMWBiyemasClicked);

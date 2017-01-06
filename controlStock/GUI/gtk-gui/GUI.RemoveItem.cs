@@ -4,19 +4,122 @@ namespace GUI
 {
 	public partial class RemoveItem
 	{
+		private global::Gtk.VBox vbox1;
+		private global::Gtk.Image image8;
+		private global::Gtk.HBox hbox1;
+		private global::Gtk.Label lblRemoveItemId;
+		private global::Gtk.Entry entRemoveItemGetId;
+		private global::Gtk.Alignment alignment1;
+		private global::Gtk.Button btnRemoveItemGetArticle;
+		private global::Gtk.Alignment alignment2;
+		private global::Gtk.ScrolledWindow GtkScrolledWindow;
+		private global::Gtk.TextView txtRemoveItemInfo;
+		private global::Gtk.Button btnRemoveItemOk;
+
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
 			// Widget GUI.RemoveItem
 			this.Name = "GUI.RemoveItem";
-			this.Title = global::Mono.Unix.Catalog.GetString ("RemoveItem");
+			this.Title = global::Mono.Unix.Catalog.GetString ("Eliminar Articulo");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			// Container child GUI.RemoveItem.Gtk.Container+ContainerChild
+			this.vbox1 = new global::Gtk.VBox ();
+			this.vbox1.Name = "vbox1";
+			this.vbox1.Spacing = 6;
+			// Container child vbox1.Gtk.Box+BoxChild
+			this.image8 = new global::Gtk.Image ();
+			this.image8.Name = "image8";
+			this.image8.Pixbuf = new global::Gdk.Pixbuf (global::System.IO.Path.Combine (global::System.AppDomain.CurrentDomain.BaseDirectory, "./logo.jpg"));
+			this.vbox1.Add (this.image8);
+			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.image8]));
+			w1.Position = 0;
+			w1.Fill = false;
+			// Container child vbox1.Gtk.Box+BoxChild
+			this.hbox1 = new global::Gtk.HBox ();
+			this.hbox1.Name = "hbox1";
+			// Container child hbox1.Gtk.Box+BoxChild
+			this.lblRemoveItemId = new global::Gtk.Label ();
+			this.lblRemoveItemId.Name = "lblRemoveItemId";
+			this.lblRemoveItemId.LabelProp = global::Mono.Unix.Catalog.GetString ("ID");
+			this.hbox1.Add (this.lblRemoveItemId);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.lblRemoveItemId]));
+			w2.Position = 0;
+			w2.Expand = false;
+			w2.Fill = false;
+			w2.Padding = ((uint)(20));
+			// Container child hbox1.Gtk.Box+BoxChild
+			this.entRemoveItemGetId = new global::Gtk.Entry ();
+			this.entRemoveItemGetId.CanFocus = true;
+			this.entRemoveItemGetId.Name = "entRemoveItemGetId";
+			this.entRemoveItemGetId.IsEditable = true;
+			this.entRemoveItemGetId.InvisibleChar = '●';
+			this.hbox1.Add (this.entRemoveItemGetId);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.entRemoveItemGetId]));
+			w3.Position = 1;
+			w3.Expand = false;
+			// Container child hbox1.Gtk.Box+BoxChild
+			this.alignment1 = new global::Gtk.Alignment (0.5F, 0.5F, 1F, 1F);
+			this.alignment1.Name = "alignment1";
+			this.alignment1.LeftPadding = ((uint)(10));
+			// Container child alignment1.Gtk.Container+ContainerChild
+			this.btnRemoveItemGetArticle = new global::Gtk.Button ();
+			this.btnRemoveItemGetArticle.CanFocus = true;
+			this.btnRemoveItemGetArticle.Name = "btnRemoveItemGetArticle";
+			this.btnRemoveItemGetArticle.UseUnderline = true;
+			this.btnRemoveItemGetArticle.Label = global::Mono.Unix.Catalog.GetString ("...");
+			this.alignment1.Add (this.btnRemoveItemGetArticle);
+			this.hbox1.Add (this.alignment1);
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.alignment1]));
+			w5.Position = 2;
+			w5.Expand = false;
+			w5.Fill = false;
+			this.vbox1.Add (this.hbox1);
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox1]));
+			w6.Position = 1;
+			w6.Expand = false;
+			w6.Fill = false;
+			w6.Padding = ((uint)(20));
+			// Container child vbox1.Gtk.Box+BoxChild
+			this.alignment2 = new global::Gtk.Alignment (0.5F, 0.5F, 1F, 1F);
+			this.alignment2.Name = "alignment2";
+			this.alignment2.LeftPadding = ((uint)(10));
+			this.alignment2.RightPadding = ((uint)(10));
+			// Container child alignment2.Gtk.Container+ContainerChild
+			this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
+			this.GtkScrolledWindow.Name = "GtkScrolledWindow";
+			this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
+			// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
+			this.txtRemoveItemInfo = new global::Gtk.TextView ();
+			this.txtRemoveItemInfo.CanFocus = true;
+			this.txtRemoveItemInfo.Name = "txtRemoveItemInfo";
+			this.GtkScrolledWindow.Add (this.txtRemoveItemInfo);
+			this.alignment2.Add (this.GtkScrolledWindow);
+			this.vbox1.Add (this.alignment2);
+			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.alignment2]));
+			w9.Position = 2;
+			// Container child vbox1.Gtk.Box+BoxChild
+			this.btnRemoveItemOk = new global::Gtk.Button ();
+			this.btnRemoveItemOk.CanFocus = true;
+			this.btnRemoveItemOk.Name = "btnRemoveItemOk";
+			this.btnRemoveItemOk.UseUnderline = true;
+			this.btnRemoveItemOk.BorderWidth = ((uint)(10));
+			this.btnRemoveItemOk.Label = global::Mono.Unix.Catalog.GetString ("Borrar Articulo");
+			this.vbox1.Add (this.btnRemoveItemOk);
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.btnRemoveItemOk]));
+			w10.Position = 3;
+			w10.Expand = false;
+			w10.Fill = false;
+			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 400;
-			this.DefaultHeight = 300;
+			this.DefaultWidth = 332;
+			this.DefaultHeight = 332;
 			this.Show ();
+			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+			this.btnRemoveItemGetArticle.Clicked += new global::System.EventHandler (this.OnBtnRemoveItemGetArticleClicked);
+			this.btnRemoveItemOk.Clicked += new global::System.EventHandler (this.OnBtnRemoveItemOkClicked);
 		}
 	}
 }
